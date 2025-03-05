@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ace Guesser</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div id="app">
+    <div id="background-container">
+      <div id="background-gradient"></div>
+      <div id="background-particles"></div>
+    </div>
+
+    <header>
+      <div class="logo-container">
+        <div class="logo">
+          <span class="logo-text">ACE</span>
+          <span class="logo-subtext">GUESSER</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="splash-screen" class="screen active">
+        <div class="glass-panel">
+          <h2 class="animated-text">Think of anything.<br>I'll guess it.</h2>
+          <div class="button-container">
+            <button id="start-game" class="neon-button">START</button>
+          </div>
+          <div class="theme-selector">
+            <div class="theme-option active" data-theme="neon-city">
+              <i class="fas fa-city"></i>
+              <span>Neon City</span>
+            </div>
+            <div class="theme-option" data-theme="y2k-cyber">
+              <i class="fas fa-desktop"></i>
+              <span>Y2K Cyber</span>
+            </div>
+            <div class="theme-option" data-theme="glitch-mode">
+              <i class="fas fa-bug"></i>
+              <span>Glitch Mode</span>
+            </div>
+            <div class="theme-option" data-theme="glass-holo">
+              <i class="fas fa-gem"></i>
+              <span>Glass Holo</span>
+            </div>
+          </div>
+          <div class="personality-selector">
+            <div class="personality-option active" data-personality="glitch-ai">
+              <i class="fas fa-robot"></i>
+              <span>Glitch AI</span>
+            </div>
+            <div class="personality-option" data-personality="playful">
+              <i class="fas fa-laugh"></i>
+              <span>Playful</span>
+            </div>
+            <div class="personality-option" data-personality="classic">
+              <i class="fas fa-brain"></i>
+              <span>Classic</span>
+            </div>
+          </div>
+          <div class="category-selector">
+            <div class="category-option active" data-category="anything">
+              <i class="fas fa-asterisk"></i>
+              <span>Anything</span>
+            </div>
+            <div class="category-option" data-category="person">
+              <i class="fas fa-user"></i>
+              <span>Person</span>
+            </div>
+            <div class="category-option" data-category="object">
+              <i class="fas fa-cube"></i>
+              <span>Object</span>
+            </div>
+          </div>
+        </div>
+        <div class="mode-selector">
+          <div class="mode-option active" data-mode="5-question">
+            <i class="fas fa-bolt"></i>
+            <span>5-Question Speed</span>
+          </div>
+          <div class="mode-option" data-mode="classic">
+            <i class="fas fa-crown"></i>
+            <span>Classic Mode</span>
+          </div>
+          <div class="mode-option" data-mode="challenge">
+            <i class="fas fa-trophy"></i>
+            <span>Beat Ace</span>
+          </div>
+          <div class="mode-option" data-mode="multiplayer">
+            <i class="fas fa-users"></i>
+            <span>Multiplayer</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-screen" class="screen">
+        <div class="glass-panel">
+          <div class="question-container">
+            <div id="question-number" class="animated-number">Question 1/5</div>
+            <div id="question-text" class="animated-text">Is your thing a living being?</div>
+          </div>
+          <div class="confidence-meter-container">
+            <div class="confidence-meter">
+              <div class="confidence-fill"></div>
+            </div>
+            <div class="confidence-label">AI Confidence: <span id="confidence-value">12%</span></div>
+          </div>
+          <div class="answer-container">
+            <button class="answer-button yes-button">YES</button>
+            <button class="answer-button maybe-button">MAYBE</button>
+            <button class="answer-button no-button">NO</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="result-screen" class="screen">
+        <div class="glass-panel">
+          <div class="result-container">
+            <div id="result-title" class="animated-text">I think you're thinking of...</div>
+            <div id="result-answer" class="animated-text big-text">Elon Musk</div>
+            <div class="confidence-final">
+              <div class="confidence-ring">
+                <svg viewBox="0 0 100 100">
+                  <circle class="confidence-circle-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="confidence-circle" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="confidence-percentage">92%</div>
+              </div>
+            </div>
+          </div>
+          <div class="result-buttons">
+            <button id="correct-button" class="result-button correct-button">CORRECT!</button>
+            <button id="wrong-button" class="result-button wrong-button">TRY AGAIN</button>
+          </div>
+          <div class="share-container">
+            <button id="share-result" class="neon-button">
+              <i class="fas fa-share-alt"></i> SHARE
+            </button>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button id="play-again" class="action-button">
+            <i class="fas fa-redo"></i> PLAY AGAIN
+          </button>
+          <button id="return-home" class="action-button">
+            <i class="fas fa-home"></i> HOME
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Always 100% Free & Ad-Free | <a href="https://jackpotdev.xyz/donate.html" target="_blank">Donate</a> | Made with ❤️ by <a href="https://jackpotdev.xyz" target="_blank">Jackpot</a>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
